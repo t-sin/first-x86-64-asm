@@ -22,3 +22,12 @@ intret:
 	@gcc asm_intret.o main_intret.o -o main_intret
 	@./main_intret
 	@rm main_intret main_intret.o asm_intret.o
+
+# intを渡す関数を書く
+.PHONY: passint
+passint:
+	@gcc -c -masm=intel asm_passint.s
+	@gcc -c main_passint.c
+	@gcc asm_passint.o main_passint.o -o main_passint
+	@./main_passint
+	@rm main_passint main_passint.o asm_passint.o
